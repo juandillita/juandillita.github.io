@@ -10,13 +10,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
+          
+      # Add a step to make the script executable
+      - name: Make bootstrap script executable
+        run: chmod +x script/bootstrap
+      
       - name: Build gem
         run: |
           gem build github-pages.gemspec
+      
       - name: Publish
         run: |
           gem push github-pages.gem --key ${{ secrets.PAGES_GEM_PUBLISH }}

@@ -11,4 +11,4 @@ My passions are **UI/UX Development**. I'm still learning, so things might look 
 
 # Repositories
 
-[View Projects](./projects.html)
+[View Projects](./projects)

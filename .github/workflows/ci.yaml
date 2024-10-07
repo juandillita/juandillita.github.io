@@ -2,6 +2,7 @@ on:
   push:
   pull_request:
     types: [opened, synchronize]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,7 +13,9 @@ jobs:
         with:
           ruby-version: 3.2
           bundler-cache: true
-      - name: build
+      - name: Set execute permissions
+        run: chmod +x script/bootstrap
+      - name: Build
         run: script/bootstrap
-      - name: test
+      - name: Test
         run: script/cibuild
